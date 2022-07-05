@@ -37,14 +37,18 @@ namespace csShooterGame
             if (direction == "right") bullet.Left += bulletSpeed;
             if(direction=="up")       bullet.Top -= bulletSpeed;
             if(direction=="down")     bullet.Top+=bulletSpeed;
-
+            //if the bullet goes off of the screen remove
             if(bullet.Left<16||bullet.Left>860||bullet.Top<10||bullet.Top>616)
             {
-                tm.Stop();
+                /*tm.Stop();
                 tm.Dispose();
                 bullet.Dispose();
                 tm= null;
-                bullet= null;
+                bullet= null;*/
+                if (bullet.Left<16&& direction=="left") bullet.Left=860;
+                if (bullet.Left > 860 && direction == "right") bullet.Left = 16;
+                if (bullet.Top < 10 && direction == "up") bullet.Top = 616;
+                if (bullet.Top > 616 && direction == "down") bullet.Top = 10;
             }
             
         }

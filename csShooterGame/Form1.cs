@@ -92,7 +92,7 @@ namespace csShooterGame
                 ammo--;
                 this.label1.Text = $"     Ammo: {ammo}";
                 Shoot(facing);
-                if (ammo < 1) {
+                if (ammo < 5) {
                     DropAmmo();
                     
                  }
